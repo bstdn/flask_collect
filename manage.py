@@ -17,5 +17,21 @@ def make_shell_context():
     return dict(app=app, db=db, Index=Index, List=List)
 
 
+@manager.command
+def collect_index(name='liaoxuefeng'):
+    Index.index_add(name)
+    Index.index_edit(name)
+
+
+@manager.command
+def collect_list_add(name='liaoxuefeng'):
+    List.list_add(name)
+
+
+@manager.command
+def collect_list_edit(name='liaoxuefeng'):
+    List.list_edit(name)
+
+
 if __name__ == '__main__':
     manager.run()
