@@ -5,6 +5,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    FLASKY_INDEX_PER_PAGE = 30
+    FLASKY_LIST_PER_PAGE = 30
 
     @staticmethod
     def init_app(app):

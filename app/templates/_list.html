@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Flask collect - List{% endblock %}
+
+{% block page_content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        List
+        <div class="pull-right">
+            <a href="{{ url_for('.list_add') }}" class="btn btn-default btn-xs">Add</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>url</th>
+                <th>status</th>
+                <th>operation</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in list_list %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.url | truncate(50) }}</td>
+                    <td>
+                        {%- if item.status == 0 -%}
+                            <span class="label label-info">Initial</span>
+                        {%- elif item.status == 1 -%}
+                            <span class="label label-success">Downloaded</span>
+                        {%- elif item.status == 2 -%}
+                            <span class="label label-default">Deprecated</span>
+                        {%- endif -%}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('.list_view', id=item.id) }}" class="label label-info">View</a>
+                        <a href="{{ url_for('.list_edit', id=item.id) }}" class="label label-primary">Edit</a>
+                        <a href="{{ url_for('.list_delete', id=item.id) }}" class="label label-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="15">
+                    {% block list_pagination %}
+                    {% if pagination.items %}
+                        <div class="pagination">
+                            {{ macros.pagination_widget(pagination, '.list_list') }}
+                        </div>
+                    {% endif %}
+                    {% endblock %}
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

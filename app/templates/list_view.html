@@ -1,0 +1,19 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Flask collect - List view{% endblock %}
+
+{% block page_nav %}
+<ul class="nav nav-pills nav-stacked">
+    {% for nav in lists %}
+        <li{% if request.view_args['id'] == nav.id %} class="active"{% endif %}><a href="{{ url_for('.list_view', id=nav.id) }}">{{ nav.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<h1 class="page-header">{{ item.name }}</h1>
+
+<div class="row">
+    {{ item.html | safe }}
+</div>
+{% endblock %}

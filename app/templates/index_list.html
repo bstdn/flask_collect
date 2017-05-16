@@ -1,0 +1,8 @@
+{% extends "_list.html" %}
+{% block list_pagination %}
+{% if pagination.items %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.index_list', id=list_list[0].index_id) }}
+</div>
+{% endif %}
+{% endblock %}

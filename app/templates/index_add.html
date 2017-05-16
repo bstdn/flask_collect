@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flask collect - Add Index{% endblock %}
+
+{% block page_content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add Index
+        <div class="pull-right">
+            <a href="{{ url_for('.index') }}" class="btn btn-default btn-xs">return</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        {{ wtf.quick_form(form) }}
+    </div>
+</div>
+{% endblock %}
