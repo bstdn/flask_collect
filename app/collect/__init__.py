@@ -1,6 +1,6 @@
 class Collect_liaoxuefeng(object):
     from .spider_liaoxuefeng import spider_liaoxuefeng
-    base_url = 'http://www.liaoxuefeng.com'
+    base_url = 'https://www.liaoxuefeng.com'
     spi = spider_liaoxuefeng()
 
 

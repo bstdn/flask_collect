@@ -18,12 +18,12 @@ class spider_liaoxuefeng(object):
         return re.search('(?<=<title>).*?(?=</title>)', html, re.S).group()
 
     def get_body(self, html):
-        return re.search('(?<=<div class="x-wiki-content">).*?(?=</div>)', html, re.S).group()
+        return re.search('(?<=<div class="x-wiki-content x-main-content">).*?(?=</div>)', html, re.S).group()
 
     def get_page_list(self, html):
-        url_box = re.search('(?<=<ul class="uk-nav uk-nav-side" style="margin-right:-15px;">).*?(?=</ul>)',
+        url_box = re.search('(?<=<ul id="x-wiki-index" class="uk-nav uk-nav-side" style="margin-right:-15px;">).*?(?=</ul>)',
                             html, re.S).group()
-        url_list = re.findall('href="(.*?)">(.*?)</a>', url_box, re.S)
+        url_list = re.findall('href="(.*?)" class="x-wiki-index-item">(.*?)</a>', url_box, re.S)
         new_url_list = [(url, name) for url, name in url_list]
         return new_url_list
 
