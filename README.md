@@ -382,3 +382,17 @@ source venv/bin/activate
 
 #访问 http://127.0.0.1:5000/
 ```
+
+## 效果展示
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0427/105726_885ec995_1185106.png "list.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0427/105739_21af8747_1185106.png "list_edit.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0427/105748_b04e2154_1185106.png "list_view.png")
+
+## 赞赏
+
+**请作者喝杯咖啡吧！(微信号/QQ号：99808359)**
+
+<img width="236" alt="微信扫一扫" src="https://images.gitee.com/uploads/images/2019/1122/203838_862f04ff_1185106.jpeg">
